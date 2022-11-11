@@ -1,7 +1,7 @@
 version: '3'
 services:
   rabbitmq1:
-    image: rabbitmq:3-management
+    image: rabbitmq:3.11.2-management
     hostname: rabbitmq1
     environment:
       - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
@@ -13,7 +13,7 @@ services:
     entrypoint: /usr/local/bin/cluster-entrypoint.sh
 
   rabbitmq2:
-    image: rabbitmq:3-management
+    image: rabbitmq:3.11.2-management
     hostname: rabbitmq2
     depends_on:
       - rabbitmq1
@@ -25,7 +25,7 @@ services:
     entrypoint: /usr/local/bin/cluster-entrypoint.sh
 
   rabbitmq3:
-    image: rabbitmq:3-management
+    image: rabbitmq:3.11.2-management
     hostname: rabbitmq3
     depends_on:
       - rabbitmq1
